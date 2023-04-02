@@ -1,3 +1,6 @@
+# https://github.com/nicolearugay
+# Uploaded 3/25/23
+
 from airflow import DAG
 from datetime import timedelta, datetime
 from airflow.operators.python import PythonOperator
