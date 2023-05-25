@@ -24,13 +24,13 @@ dag = DAG(dag_id='weather_dag_2',
 
 
 def _notify():
-        keys = [331127,331109,331130,331418,329144,331114,335732]
-        cities = ['Victoria, Texas', 'Brownsville, Texas', 'Corpus Christi, Texas', 'Olympia, Washington',
-        'Lake Charles, Louisiana', 'Galveston, Texas', 'Port Arthur, Texas']
+        city_dict = {331127: 'Victoria, Texas', 331109: 'Brownsville, Texas', 331130: 'Corpus Christi, Texas',
+             331418: 'Olympia, Washington', 329144: 'Lake Charles, Louisiana', 331114: 'Galveston, Texas',
+             335732: 'Port Arthur, Texas’, 347937: ‘Tampa, Florida’, 329674: ‘Rochester, New York’, 351409: ‘Seattle, Washington’}
         API_KEY = 'INSERT API KEY'
         final_string = ""
 
-        for (i, x) in zip(keys,cities):
+        for i, x in city_dict.items():
             url = f"http://dataservice.accuweather.com/currentconditions/v1/{i}?apikey={API_KEY}&details=true"
             response = requests.get(url)
             if response.status_code == 200:
